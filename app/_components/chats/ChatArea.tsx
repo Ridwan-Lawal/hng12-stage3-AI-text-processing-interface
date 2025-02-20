@@ -20,7 +20,7 @@ export default function ChatArea() {
   }, [prompts.length]);
 
   return (
-    <div className=" h-[68vh]  overflow-auto max-w-[700px] mx-auto px-4 flex flex-col gap-5 scrollbar-hide">
+    <div className=" h-[68vh]  overflow-auto max-w-[700px] mx-auto px-4 flex flex-col gap-5 scrollbar-hide py-6">
       {/* each chats */}
       {prompts?.map((prompt, id) =>
         prompt?.promptFrom === "user" ? (

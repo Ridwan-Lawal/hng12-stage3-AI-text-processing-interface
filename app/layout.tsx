@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import NavBar from "@/app/_ui/NavBar";
 import TextArea from "@/app/_components/chats/TextArea";
 import { roboto } from "@/app/_styles/fonts";
@@ -11,6 +12,10 @@ interface Metadata {
     default: string;
   };
   description: string;
+  metadatabase: any;
+  other: {
+    "origin-trial": string[];
+  };
 }
 
 export const metadata: Metadata = {
@@ -20,6 +25,16 @@ export const metadata: Metadata = {
   },
   description:
     "An application that allows you to input text and utilize features such as summarization, translation, and language detection.",
+  metadatabase: new URL(
+    "https://hng12-stage3-ai-text-processing-interface.vercel.app/"
+  ),
+  other: {
+    "origin-trial": [
+      process.env.NEXT_PUBLIC_TRANSLATOR_ORIGIN_TRIAL_TOKEN,
+      process.env.NEXT_PUBLIC_DETECTOR_ORIGIN_TRIAL_TOKEN,
+      process.env.NEXT_PUBLIC_SUMMARIZER_ORIGIN_TRIAL_TOKEN,
+    ],
+  },
 };
 
 export default function RootLayout({
