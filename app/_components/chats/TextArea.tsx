@@ -93,8 +93,11 @@ export default function TextArea() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="px-6 py-3 h-[19vh] text-area">
-      <fieldset className="flex items-center gap-6 max-w-[700px] mx-auto">
+    <form
+      onSubmit={handleSubmit}
+      className="px-6 py-3 h-[17vh] text-area border-t border-gray-800 flex items-center"
+    >
+      <fieldset className="flex items-center gap-6 max-w-[700px] mx-auto w-full">
         <textarea
           name="prompt"
           id="prompt"

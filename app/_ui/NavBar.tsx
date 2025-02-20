@@ -4,7 +4,7 @@ import logo from "@/public/logo.png";
 
 export default function NavBar() {
   return (
-    <nav className="px-6 py-2 h-[13vh] top-0  w-full shadow-md shadow-gray-950">
+    <nav className="px-6 py-2 h-[13vh] top-0  w-full shadow-sm flex items-center shadow-gray-800">
       {/* logo and text */}
       <div className="flex items-center gap-5">
         {/* logo */}
