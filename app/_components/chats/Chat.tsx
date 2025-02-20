@@ -18,6 +18,7 @@ interface ChatProps {
 export default function Chat({ prompt }: ChatProps) {
   const [targetLanguage, setTargetLanguage] = useState<string>("en");
   const [isTranslating, setIsTranslating] = useState(false);
+  const [isSummarizing, setIsSummarizing] = useState(false);
   const dispatch = useDispatch();
 
   async function handleTranslate() {
@@ -52,6 +53,65 @@ export default function Chat({ prompt }: ChatProps) {
     }
   }
 
+  async function handleSummarize() {
+    try {
+      setIsSummarizing(true);
+
+      // Checking if the summarizer api is supported by the browser
+
+      const doesApiSupport = "ai" in self && "summarizer" in self.ai;
+      if (!doesApiSupport) {
+        throw new Error("Your browser does not support the Summarizer API!");
+      }
+
+      //   if browser supports it, check if it's downloaded, if not download it, and create the api
+
+      const options = {
+        type: "key-points",
+        format: "markdown",
+        length: "short",
+      };
+
+      const apiAvailability = await self.ai.summarizer.capabilities();
+
+      let summarizer;
+
+      if (apiAvailability?.available === "no") {
+        throw new Error("The Summarizer API isn't usable.");
+      }
+      if (apiAvailability?.available === "readily") {
+        // The Summarizer API can be used immediately .
+        summarizer = await self.ai.summarizer.create(options);
+      } else {
+        // The Summarizer API can be used after the model is downloaded.
+        console.log("about to download");
+        summarizer = await self.ai.summarizer.create(options);
+        summarizer.addEventListener("downloadprogress", (e) => {
+          console.log(e.loaded, e.total);
+        });
+        await summarizer.ready;
+      }
+
+      //   If your browser is readily to summarize, then summarize the texts below
+
+      const summarizedText = await summarizer.summarize(prompt?.prompt);
+
+      dispatch(
+        addPrompts({
+          aiResponse: summarizedText,
+          promptFrom: "AI",
+          responseType: "summarize",
+        })
+      );
+
+      console.log(summarizedText);
+    } catch (error) {
+      toast.error(error.message);
+    } finally {
+      setIsSummarizing(false);
+    }
+  }
+
   return (
     <div className="chat break-all self-end">
       {/* text and detected language  */}
@@ -68,11 +128,17 @@ export default function Chat({ prompt }: ChatProps) {
           </p>
           {prompt?.prompt.length > 150 && (
             <button
+              onClick={handleSummarize}
               className="btn btn-summarize"
               aria-label="Summarize your texts"
+              disabled={isTranslating || isSummarizing}
             >
               <FileText className="size-3 sm:size-4 text-white" />
-              <span>Summarize</span>
+              {isSummarizing ? (
+                <MiniSpinner color="white" />
+              ) : (
+                <span>Summarize</span>
+              )}
             </button>
           )}
         </div>
@@ -102,6 +168,7 @@ export default function Chat({ prompt }: ChatProps) {
             onClick={handleTranslate}
             className="btn btn-translate"
             aria-label="Summarize your texts"
+            disabled={isTranslating || isSummarizing}
           >
             <Languages className="size-4 " />
             {isTranslating ? (

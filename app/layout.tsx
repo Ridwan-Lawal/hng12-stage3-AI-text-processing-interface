@@ -40,8 +40,9 @@ export default function RootLayout({
           <footer>
             <TextArea />
           </footer>
+
+          <Toaster />
         </body>
-        <Toaster />
       </StoreProvider>
     </html>
   );

@@ -82,6 +82,8 @@ export default function TextArea() {
     } finally {
       setIsDetectingLanguage(false);
     }
+
+    setUserPrompt("");
   }
 
   return (
