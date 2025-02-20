@@ -30,13 +30,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <StoreProvider>
-        <body
-          className={`${roboto.className} border min-h-screen flex flex-col`}
-        >
+        <body className={`${roboto.className}  min-h-screen flex flex-col`}>
           <header>
             <NavBar />
           </header>
-          <main className="flex-grow border">{children}</main>
+          <main className="flex-grow ">{children}</main>
           <footer>
             <TextArea />
           </footer>

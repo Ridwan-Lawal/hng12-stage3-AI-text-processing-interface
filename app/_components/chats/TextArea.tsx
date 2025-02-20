@@ -68,7 +68,6 @@ export default function TextArea() {
 
       // detecting for languages
       const promptLanguages = await detector.detect(prompt);
-      console.log(promptLanguages);
 
       // if the prompt is an invalid prompt
       if (promptLanguages?.at(0)?.detectedLanguage === "no")
