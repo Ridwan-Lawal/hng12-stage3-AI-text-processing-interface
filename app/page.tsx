@@ -1,4 +1,4 @@
-import ChatArea from "@/app/_components/ChatArea";
+import ChatArea from "@/app/_components/chats/ChatArea";
 import React from "react";
 
 export default function Page() {

@@ -1,7 +1,9 @@
-import NavBar from "@/app/_components/NavBar";
-import TextArea from "@/app/_components/TextArea";
+import NavBar from "@/app/_ui/NavBar";
+import TextArea from "@/app/_components/chats/TextArea";
 import { roboto } from "@/app/_styles/fonts";
 import "@/app/_styles/globals.css";
+import StoreProvider from "@/app/_lib/redux/StoreProvider";
+import { Toaster } from "react-hot-toast";
 
 interface Metadata {
   title: {
@@ -27,15 +29,20 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${roboto.className} border min-h-screen flex flex-col`}>
-        <header>
-          <NavBar />
-        </header>
-        <main className="flex-grow border">{children}</main>
-        <footer>
-          <TextArea />
-        </footer>
-      </body>
+      <StoreProvider>
+        <body
+          className={`${roboto.className} border min-h-screen flex flex-col`}
+        >
+          <header>
+            <NavBar />
+          </header>
+          <main className="flex-grow border">{children}</main>
+          <footer>
+            <TextArea />
+          </footer>
+        </body>
+        <Toaster />
+      </StoreProvider>
     </html>
   );
 }

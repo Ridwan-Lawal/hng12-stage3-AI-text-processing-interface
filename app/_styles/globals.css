@@ -10,7 +10,7 @@
 
 @layer components {
   .btn {
-    @apply text-sm text-white  rounded-md py-2.5 px-4 flex items-center gap-2;
+    @apply py-2 px-2 text-xs sm:text-sm text-white  rounded-md sm:py-2.5 sm:px-4 flex items-center gap-2;
   }
   .btn-summarize {
     @apply bg-gray-700;
@@ -21,10 +21,14 @@
   }
 
   .chat {
-    @apply bg-gray-800 text-sm max-w-[500px] py-4 px-6 rounded-lg;
+    @apply bg-gray-800 text-sm max-w-[320px] py-4 px-6 rounded-lg;
   }
   .chat-text {
-    @apply text-white leading-relaxed flex flex-col gap-2 border-b border-gray-600 pb-3;
+    @apply text-[13px] md:text-sm text-white leading-relaxed flex flex-col gap-2 border-b border-gray-600 pb-3;
+  }
+
+  .text-area textarea {
+    @apply flex-grow focus:outline-none focus:border focus:border-blue-600 bg-gray-700 text-white rounded-xl py-4 px-5 text-sm font-medium h-[90px];
   }
 }
 
