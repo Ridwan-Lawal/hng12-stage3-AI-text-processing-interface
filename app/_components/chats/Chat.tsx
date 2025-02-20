@@ -33,6 +33,7 @@ export default function Chat({ prompt }: ChatProps) {
       }
 
       // if translator is supported, then create a translator that translate from the languate detected, to the target language
+
       const translator = await self.ai.translator.create({
         sourceLanguage: prompt.languageDetected,
         targetLanguage,
@@ -103,8 +104,6 @@ export default function Chat({ prompt }: ChatProps) {
           responseType: "summarize",
         })
       );
-
-      console.log(summarizedText);
     } catch (error) {
       toast.error(error.message);
     } finally {

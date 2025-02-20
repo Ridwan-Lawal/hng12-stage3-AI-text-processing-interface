@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import Chat from "@/app/_components/chats/Chat";
@@ -7,7 +8,7 @@ import { useSelector } from "react-redux";
 
 export default function ChatArea() {
   const pageBottomRef = useRef<HTMLDivElement | null>(null);
-  const prompts = useSelector((store) => store.chats?.prompts);
+  const prompts = useSelector((store: any) => store?.chats?.prompts);
 
   useEffect(() => {
     const pageBottomEl = pageBottomRef?.current;

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import { addPrompts } from "@/app/_lib/redux/chatsSlice";
@@ -6,6 +7,12 @@ import { Send } from "lucide-react";
 import React, { useState } from "react";
 import toast from "react-hot-toast";
 import { useDispatch } from "react-redux";
+
+declare global {
+  interface Window {
+    ai: any;
+  }
+}
 
 export default function TextArea() {
   const [prompt, setUserPrompt] = useState<string>("");

@@ -13,7 +13,7 @@ export default function MiniSpinner({ color }: { color: string }) {
         ariaLabel="color-ring-loading"
         wrapperStyle={{}}
         wrapperClass="color-ring-wrapper"
-        colors={Array.from({ length: 5 }, (_, i) => i + 1).map(() => color)}
+        colors={[color, color, color, color, color]}
       />
     </div>
   );
