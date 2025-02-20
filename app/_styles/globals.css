@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gray-900;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply text-sm text-white  rounded-md py-2.5 px-4 flex items-center gap-2;
+  }
+  .btn-summarize {
+    @apply bg-gray-700;
+  }
+
+  .btn-translate {
+    @apply bg-blue-600;
+  }
+
+  .chat {
+    @apply bg-gray-800 text-sm max-w-[500px] py-4 px-6 rounded-lg;
+  }
+  .chat-text {
+    @apply text-white leading-relaxed flex flex-col gap-2 border-b border-gray-600 pb-3;
+  }
+}
+
+@layer utilities {
+}

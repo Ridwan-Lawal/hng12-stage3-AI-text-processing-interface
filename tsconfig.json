@@ -23,7 +23,7 @@
       "@components/": ["./app/_components/*"],
       "@lib/*": ["./app/_lib/*"],
       "@ui/*": ["./app/_ui/*"],
-      "@styles": ["./app/_styles/*"]
+      "@styles/*": ["./app/_styles/"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
