@@ -1,10 +1,11 @@
 import Image from "next/image";
 import React from "react";
 import logo from "@/public/logo.png";
+import ClearChatsBtn from "@/app/_ui/ClearChatsBtn";
 
 export default function NavBar() {
   return (
-    <nav className="px-6 py-2 h-[13vh] top-0  w-full shadow-sm flex items-center shadow-gray-800">
+    <nav className="px-6 py-2 h-[13vh] top-0  w-full shadow-sm flex items-center shadow-gray-800 justify-between">
       {/* logo and text */}
       <div className="flex items-center gap-5">
         {/* logo */}
@@ -27,6 +28,9 @@ export default function NavBar() {
           </p>
         </div>
       </div>
+
+      {/* clear chat */}
+      <ClearChatsBtn />
     </nav>
   );
 }

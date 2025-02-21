@@ -15,9 +15,13 @@ const chatsSlice = createSlice({
     addPrompts(state, action) {
       state.prompts = [...state.prompts, action.payload];
     },
+
+    clearAllPrompts(state) {
+      state.prompts = [];
+    },
   },
 });
 
-export const { addPrompts } = chatsSlice.actions;
+export const { addPrompts, clearAllPrompts } = chatsSlice.actions;
 
 export default chatsSlice?.reducer;

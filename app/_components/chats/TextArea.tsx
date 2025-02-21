@@ -114,6 +114,7 @@ export default function TextArea() {
         />
 
         <button
+          type="submit"
           disabled={!prompt.length || isDetectingLanguage}
           aria-disabled={isDetectingLanguage}
           aria-label="send prompt"
@@ -131,32 +132,3 @@ export default function TextArea() {
     </form>
   );
 }
-
-// continue with the chat area
-// disable the send button if there is no text in it
-
-// const [state, formAction, isDetectingLanguage] = useActionState(
-//   languageDetectAction,
-//   null
-// );
-
-// const { error, input } = state ?? {};
-// console.log(error, input);
-
-// useEffect(() => {
-//   if (error?.prompt?.at(0) === undefined) return;
-//   if (error?.prompt?.at(0)) {
-//     const errorText = error?.prompt?.at(0) as string;
-//     toast.error(errorText);
-//   }
-// }, [error]);
-
-// useEffect(() => {
-//   if (state === undefined || state === null) return;
-//   if (state?.success) {
-//     toast.success("working");
-//   }
-//   if (state?.success === false) {
-//     toast.error(state?.message);
-//   }
-// });

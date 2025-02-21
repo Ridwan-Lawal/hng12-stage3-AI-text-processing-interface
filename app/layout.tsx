@@ -44,8 +44,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <StoreProvider>
-        <body className={`${roboto.className}  min-h-screen flex flex-col`}>
+      <body className={`${roboto.className}  min-h-screen flex flex-col`}>
+        <StoreProvider>
           <header>
             <NavBar />
           </header>
@@ -55,8 +55,8 @@ export default function RootLayout({
           </footer>
 
           <Toaster />
-        </body>
-      </StoreProvider>
+        </StoreProvider>
+      </body>
     </html>
   );
 }

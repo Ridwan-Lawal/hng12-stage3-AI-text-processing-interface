@@ -112,7 +112,7 @@ export default function Chat({ prompt }: ChatProps) {
   }
 
   return (
-    <div className="chat break-all self-end">
+    <div className="chat transition-all duration-300 break-all self-end">
       {/* text and detected language  */}
       <div className="chat-text">
         <p className="break-all">{prompt?.prompt}</p>

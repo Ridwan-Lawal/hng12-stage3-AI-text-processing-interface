@@ -5,7 +5,7 @@ import { Comment } from "react-loader-spinner";
 
 export default function Spinner() {
   return (
-    <div>
+    <div className=" ">
       <Comment
         visible={true}
         height="50"

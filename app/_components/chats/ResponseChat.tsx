@@ -13,7 +13,7 @@ interface ResponseChatProps {
 
 export default function ResponseChat({ prompt }: ResponseChatProps) {
   return (
-    <div className="break-all chat space-y-2 self-start">
+    <div className="break-all transition-all duration-300 chat space-y-2 self-start">
       <h1 className="text-white text-sm font-medium">
         {prompt?.responseType === "translate"
           ? "Translated Text:"
